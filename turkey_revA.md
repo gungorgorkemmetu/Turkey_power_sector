@@ -73,7 +73,9 @@ import itertools
 import pandas as pd
 
 import matplotlib.pyplot as plt
+import matplotlib_inline
 %matplotlib inline
+matplotlib_inline.backend_inline.set_matplotlib_formats("svg")
 plt.style.use('ggplot')
 
 import ixmp as ix
@@ -89,8 +91,8 @@ from message_ix.util import make_df
 mp = ix.Platform(name="local")
 ```
 
-    2026-07-11 15:05:32,542  INFO at.ac.iiasa.ixmp.Platform:165 - Welcome to the IX modeling platform!
-    2026-07-11 15:05:32,546  INFO at.ac.iiasa.ixmp.Platform:166 -  connected to database 'jdbc:hsqldb:file:/home/ggungor/.local/share/ixmp/localdb/default' (user: ixmp)...
+    2026-10-04 13:11:31,888  INFO at.ac.iiasa.ixmp.Platform:165 - Welcome to the IX modeling platform!
+    2026-10-04 13:11:31,892  INFO at.ac.iiasa.ixmp.Platform:166 -  connected to database 'jdbc:hsqldb:file:/home/ggungor/.local/share/ixmp/localdb/default' (user: ixmp)...
 
 
 
@@ -302,8 +304,8 @@ scenario.vintage_and_active_years()
 
 ```python
 # We remove the hashtags below when we are building the model for the first time
-# country = 'Turkey'
-# scenario.add_spatial_sets({'country': country})
+country = 'Turkey'
+scenario.add_spatial_sets({'country': country})
 ```
 
 
@@ -404,7 +406,7 @@ df.plot()
 
 
     
-![png](turkey_revA_files/turkey_revA_21_2.png)
+![svg](turkey_revA_files/turkey_revA_21_2.svg)
     
 
 
@@ -477,7 +479,7 @@ demand.plot()
 
 
     
-![png](turkey_revA_files/turkey_revA_28_1.png)
+![svg](turkey_revA_files/turkey_revA_28_1.svg)
     
 
 
@@ -2276,7 +2278,7 @@ scenario.solve()
 
 
     --- Warning: The GAMS version [51.3.0] differs from the API version [24.8.3].
-    --- Job MESSAGE_run.gms Start 07/11/26 15:37:48 51.3.0 38407a9b LEX-LEG x86 64bit/Linux
+    --- Job MESSAGE_run.gms Start 10/04/26 13:15:15 51.3.0 38407a9b LEX-LEG x86 64bit/Linux
     --- Applying:
         /home/ggungor/Downloads/gams51.3_linux_x64_64_sfx/gmsprmun.txt
     --- GAMS Parameters defined
@@ -2332,7 +2334,7 @@ scenario.solve()
     --- MESSAGE_run.gms(43) 3 Mb
     --- . reporting.gms(26) 3 Mb
     --- MESSAGE_run.gms(52) 3 Mb
-    --- Starting execution: elapsed 0:00:00.208
+    --- Starting execution: elapsed 0:00:00.184
     --- MESSAGE_run.gms(1644) 4 Mb
         +++ Importing data from '/home/ggungor/miniconda3/lib/python3.12/site-packages/message_ix/model/data/MsgData_Turkey_energy_model_baseline.gdx'... +++
     --- MESSAGE_run.gms(1669) 4 Mb
@@ -2347,7 +2349,7 @@ scenario.solve()
     --- RHS       [min, max] : [ 8.037E-02, 4.462E+01] - Zero values observed as well
     --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
     --- Matrix    [min, max] : [ 1.000E-01, 3.100E+03]
-    --- Executing CPLEX (Solvelink=2): elapsed 0:00:00.292
+    --- Executing CPLEX (Solvelink=2): elapsed 0:00:00.281
     
     IBM ILOG CPLEX   51.3.0 38407a9b Oct 27, 2025          LEG x86 64bit/Linux    
     
@@ -2415,7 +2417,7 @@ scenario.solve()
       17   4.0793796e+05   4.0793793e+05  2.89e-04  3.08e-06  1.68e-08  8.40e+05
       18   4.0793793e+05   4.0793793e+05  5.68e-06  5.46e-08  1.30e-07  8.57e+05
       19   4.0793793e+05   4.0793793e+05  2.64e-08  7.22e-12  2.56e-07  7.73e+09
-    Barrier time = 0.14 sec. (3.40 ticks)
+    Barrier time = 0.13 sec. (3.40 ticks)
     Parallel mode: deterministic, using up to 4 threads for concurrent optimization:
      * Starting dual Simplex on 1 thread...
      * Starting primal Simplex on 1 thread...
@@ -2430,7 +2432,7 @@ scenario.solve()
     
     Dual simplex solved model.
     
-    Total crossover time = 0.10 sec. (1.01 ticks)
+    Total crossover time = 0.11 sec. (1.01 ticks)
     
     Total time on 4 threads = 0.29 sec. (5.41 ticks)
     
@@ -2442,19 +2444,19 @@ scenario.solve()
     Objective:       407937.932625
     
     --- Reading solution for model MESSAGE_LP
-    --- Executing after solve: elapsed 0:00:01.646
+    --- Executing after solve: elapsed 0:00:01.402
     --- MESSAGE_run.gms(4786) 5 Mb
     --- GDX File (execute_unload) /home/ggungor/miniconda3/lib/python3.12/site-packages/message_ix/model/output/MsgOutput_Turkey_energy_model_baseline.gdx
     --- MESSAGE_run.gms(4788) 5 Mb
         +++ End of MESSAGEix (stand-alone) run - have a nice day! +++
     *** Status: Normal completion
-    --- Job MESSAGE_run.gms Stop 07/11/26 15:37:50 elapsed 0:00:01.704
+    --- Job MESSAGE_run.gms Stop 10/04/26 13:15:16 elapsed 0:00:01.436
     --- Warning: The GAMS version [51.3.0] differs from the API version [24.8.3].
     --- Warning: The GAMS version [51.3.0] differs from the API version [24.8.3].
 
 
-    2026-07-11 15:37:50,669 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'I' not found in gdx!
-    2026-07-11 15:37:50,671 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'C' not found in gdx!
+    2026-10-04 13:15:16,903 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'I' not found in gdx!
+    2026-10-04 13:15:16,907 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'C' not found in gdx!
 
 
 
@@ -2480,7 +2482,7 @@ rep = Reporter.from_scenario(scenario)
 prepare_plots(rep)
 ```
 
-    /tmp/ipykernel_3850/1999348187.py:1: DeprecationWarning: Importing from 'message_ix.reporting' is deprecated and will fail in a future version. Use 'message_ix.report'.
+    /tmp/ipykernel_3609/1999348187.py:1: DeprecationWarning: Importing from 'message_ix.reporting' is deprecated and will fail in a future version. Use 'message_ix.report'.
       from message_ix.reporting import Reporter
     genno.config - WARNING: Cannot redefine 'y' (<class 'pint.delegates.txt_defparser.plain.UnitDefinition'>)
     genno.config - INFO: Replace unit '-' with ''
@@ -2501,7 +2503,7 @@ rep.get("plot new capacity")
 
 
     
-![png](turkey_revA_files/turkey_revA_67_1.png)
+![svg](turkey_revA_files/turkey_revA_67_1.svg)
     
 
 
@@ -2520,7 +2522,7 @@ rep.get("plot new capacity")
 
 
     
-![png](turkey_revA_files/turkey_revA_68_1.png)
+![svg](turkey_revA_files/turkey_revA_68_1.svg)
     
 
 
@@ -2539,7 +2541,7 @@ rep.get("plot capacity")
 
 
     
-![png](turkey_revA_files/turkey_revA_69_1.png)
+![svg](turkey_revA_files/turkey_revA_69_1.svg)
     
 
 
@@ -2558,7 +2560,7 @@ rep.get("plot capacity")
 
 
     
-![png](turkey_revA_files/turkey_revA_70_1.png)
+![svg](turkey_revA_files/turkey_revA_70_1.svg)
     
 
 
@@ -2579,7 +2581,7 @@ rep.get("plot demand")
 
 
     
-![png](turkey_revA_files/turkey_revA_71_2.png)
+![svg](turkey_revA_files/turkey_revA_71_2.svg)
     
 
 
@@ -2598,7 +2600,7 @@ rep.get("plot activity")
 
 
     
-![png](turkey_revA_files/turkey_revA_72_1.png)
+![svg](turkey_revA_files/turkey_revA_72_1.svg)
     
 
 
@@ -2617,7 +2619,7 @@ rep.get("plot activity")
 
 
     
-![png](turkey_revA_files/turkey_revA_73_1.png)
+![svg](turkey_revA_files/turkey_revA_73_1.svg)
     
 
 
@@ -2636,7 +2638,7 @@ rep.get("plot prices")
 
 
     
-![png](turkey_revA_files/turkey_revA_74_1.png)
+![svg](turkey_revA_files/turkey_revA_74_1.svg)
     
 
 

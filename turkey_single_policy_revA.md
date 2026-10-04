@@ -21,7 +21,9 @@ import numpy as np
 import pandas as pd
 
 import matplotlib.pyplot as plt
+import matplotlib_inline
 %matplotlib inline
+matplotlib_inline.backend_inline.set_matplotlib_formats("svg")
 plt.style.use('ggplot')
 
 import ixmp as ix
@@ -34,8 +36,8 @@ import message_ix
 mp = ix.Platform(name="local")
 ```
 
-    2026-07-11 18:02:19,503  INFO at.ac.iiasa.ixmp.Platform:165 - Welcome to the IX modeling platform!
-    2026-07-11 18:02:19,520  INFO at.ac.iiasa.ixmp.Platform:166 -  connected to database 'jdbc:hsqldb:file:/home/ggungor/.local/share/ixmp/localdb/default' (user: ixmp)...
+    2026-10-04 13:20:34,398  INFO at.ac.iiasa.ixmp.Platform:165 - Welcome to the IX modeling platform!
+    2026-10-04 13:20:34,402  INFO at.ac.iiasa.ixmp.Platform:166 -  connected to database 'jdbc:hsqldb:file:/home/ggungor/.local/share/ixmp/localdb/default' (user: ixmp)...
 
 
 
@@ -117,14 +119,14 @@ scen_df.loc[scen_df["scenario"] == "baseline"] # to show just the scenario we ar
       <td>ggungor</td>
       <td>2026-03-24 20:57:43.693000</td>
       <td>ggungor</td>
-      <td>2026-07-11 17:58:02.455000</td>
+      <td>2026-10-04 13:15:16.909000</td>
       <td>None</td>
       <td>None</td>
       <td>initial commit for Turkey model</td>
       <td>5</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>9</th>
       <td>Westeros Electrified</td>
       <td>baseline</td>
       <td>MESSAGE</td>
@@ -207,7 +209,7 @@ mp.scenario_list()
       <td>ggungor</td>
       <td>2026-03-24 20:57:43.693000</td>
       <td>ggungor</td>
-      <td>2026-07-11 17:58:02.455000</td>
+      <td>2026-10-04 13:15:16.909000</td>
       <td>None</td>
       <td>None</td>
       <td>initial commit for Turkey model</td>
@@ -216,21 +218,69 @@ mp.scenario_list()
     <tr>
       <th>1</th>
       <td>Turkey energy model</td>
+      <td>carbon_tax</td>
+      <td>MESSAGE</td>
+      <td>1</td>
+      <td>0</td>
+      <td>ggungor</td>
+      <td>2026-09-28 21:10:39.523000</td>
+      <td>ggungor</td>
+      <td>2026-09-28 21:11:09.874000</td>
+      <td>None</td>
+      <td>None</td>
+      <td>clone Scenario from 'Turkey energy model|basel...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Turkey energy model</td>
       <td>cheap_cfls</td>
       <td>MESSAGE</td>
       <td>1</td>
       <td>0</td>
       <td>ggungor</td>
-      <td>2026-03-24 21:03:18.466000</td>
+      <td>2026-09-28 21:03:09.165000</td>
       <td>ggungor</td>
-      <td>2026-03-24 21:03:49.497000</td>
+      <td>2026-09-28 21:04:09.439000</td>
       <td>None</td>
       <td>None</td>
       <td>clone Scenario from 'Turkey energy model|basel...</td>
-      <td>4</td>
+      <td>6</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
+      <td>Turkey energy model</td>
+      <td>economy</td>
+      <td>MESSAGE</td>
+      <td>1</td>
+      <td>0</td>
+      <td>ggungor</td>
+      <td>2026-09-28 21:08:26.157000</td>
+      <td>ggungor</td>
+      <td>2026-09-28 21:09:10.004000</td>
+      <td>None</td>
+      <td>None</td>
+      <td>clone Scenario from 'Turkey energy model|basel...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Turkey energy model</td>
+      <td>emissions_constraint</td>
+      <td>MESSAGE</td>
+      <td>1</td>
+      <td>0</td>
+      <td>ggungor</td>
+      <td>2026-09-28 21:11:47.712000</td>
+      <td>ggungor</td>
+      <td>2026-09-28 21:12:15.078000</td>
+      <td>None</td>
+      <td>None</td>
+      <td>clone Scenario from 'Turkey energy model|basel...</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5</th>
       <td>Turkey energy model</td>
       <td>solar subsidies</td>
       <td>MESSAGE</td>
@@ -246,7 +296,7 @@ mp.scenario_list()
       <td>3</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>6</th>
       <td>Turkey energy model</td>
       <td>solar_subsidies</td>
       <td>MESSAGE</td>
@@ -262,23 +312,39 @@ mp.scenario_list()
       <td>2</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>7</th>
       <td>Turkey energy model</td>
       <td>wind subsidies</td>
       <td>MESSAGE</td>
       <td>1</td>
       <td>0</td>
       <td>ggungor</td>
-      <td>2026-07-11 18:14:07.358000</td>
+      <td>2026-09-28 20:56:36.929000</td>
       <td>ggungor</td>
-      <td>2026-07-11 18:15:03.536000</td>
+      <td>2026-09-28 20:57:55.852000</td>
+      <td>None</td>
+      <td>None</td>
+      <td>clone Scenario from 'Turkey energy model|basel...</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Turkey energy model</td>
+      <td>wind_subsidies</td>
+      <td>MESSAGE</td>
+      <td>1</td>
+      <td>0</td>
+      <td>ggungor</td>
+      <td>2026-09-28 21:00:45.167000</td>
+      <td>ggungor</td>
+      <td>2026-09-28 21:01:45.069000</td>
       <td>None</td>
       <td>None</td>
       <td>clone Scenario from 'Turkey energy model|basel...</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>9</th>
       <td>Westeros Electrified</td>
       <td>baseline</td>
       <td>MESSAGE</td>
@@ -528,7 +594,7 @@ scenario.solve()
 ```
 
     --- Warning: The GAMS version [51.3.0] differs from the API version [24.8.3].
-    --- Job MESSAGE_run.gms Start 07/11/26 18:17:44 51.3.0 38407a9b LEX-LEG x86 64bit/Linux
+    --- Job MESSAGE_run.gms Start 10/04/26 13:21:54 51.3.0 38407a9b LEX-LEG x86 64bit/Linux
     --- Applying:
         /home/ggungor/Downloads/gams51.3_linux_x64_64_sfx/gmsprmun.txt
     --- GAMS Parameters defined
@@ -584,7 +650,7 @@ scenario.solve()
     --- MESSAGE_run.gms(43) 3 Mb
     --- . reporting.gms(26) 3 Mb
     --- MESSAGE_run.gms(52) 3 Mb
-    --- Starting execution: elapsed 0:00:00.034
+    --- Starting execution: elapsed 0:00:00.195
     --- MESSAGE_run.gms(1644) 4 Mb
         +++ Importing data from '/home/ggungor/miniconda3/lib/python3.12/site-packages/message_ix/model/data/MsgData_Turkey_energy_model_wind_subsidies.gdx'... +++
     --- MESSAGE_run.gms(1669) 4 Mb
@@ -599,7 +665,7 @@ scenario.solve()
     --- RHS       [min, max] : [ 8.037E-02, 4.462E+01] - Zero values observed as well
     --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
     --- Matrix    [min, max] : [ 1.000E-01, 3.100E+03]
-    --- Executing CPLEX (Solvelink=2): elapsed 0:00:00.048
+    --- Executing CPLEX (Solvelink=2): elapsed 0:00:00.327
     
     IBM ILOG CPLEX   51.3.0 38407a9b Oct 27, 2025          LEG x86 64bit/Linux    
     
@@ -635,7 +701,7 @@ scenario.solve()
     LP Presolve eliminated 269 rows and 142 columns.
     Aggregator did 118 substitutions.
     Reduced LP has 372 rows, 411 columns, and 1338 nonzeros.
-    Presolve time = 0.00 sec. (0.96 ticks)
+    Presolve time = 0.06 sec. (0.96 ticks)
     Parallel mode: using up to 4 threads for barrier.
     Number of nonzeros in lower triangle of A*A' = 1217
     Using Approximate Minimum Degree ordering
@@ -665,7 +731,7 @@ scenario.solve()
       15   3.9044566e+05   3.9044499e+05  3.65e-03  3.89e-05  2.47e-04  7.16e+02
       16   3.9044534e+05   3.9044534e+05  1.57e-06  1.67e-08  1.81e-07  9.95e+05
       17   3.9044534e+05   3.9044534e+05  3.14e-09  1.72e-12  5.38e-08  1.29e+10
-    Barrier time = 0.02 sec. (3.09 ticks)
+    Barrier time = 0.12 sec. (3.09 ticks)
     Parallel mode: deterministic, using up to 4 threads for concurrent optimization:
      * Starting dual Simplex on 1 thread...
      * Starting primal Simplex on 1 thread...
@@ -680,31 +746,31 @@ scenario.solve()
     
     Dual simplex solved model.
     
-    Total crossover time = 0.00 sec. (1.02 ticks)
+    Total crossover time = 0.11 sec. (1.02 ticks)
     
-    Total time on 4 threads = 0.02 sec. (5.09 ticks)
+    Total time on 4 threads = 0.29 sec. (5.09 ticks)
     
     --- LP status (1): optimal.
-    --- Cplex Time: 0.02sec (det. 5.09 ticks)
+    --- Cplex Time: 0.33sec (det. 5.09 ticks)
     
     
     Optimal solution found
     Objective:       390445.342675
     
     --- Reading solution for model MESSAGE_LP
-    --- Executing after solve: elapsed 0:00:00.110
+    --- Executing after solve: elapsed 0:00:01.458
     --- MESSAGE_run.gms(4786) 5 Mb
     --- GDX File (execute_unload) /home/ggungor/miniconda3/lib/python3.12/site-packages/message_ix/model/output/MsgOutput_Turkey_energy_model_wind_subsidies.gdx
     --- MESSAGE_run.gms(4788) 5 Mb
         +++ End of MESSAGEix (stand-alone) run - have a nice day! +++
     *** Status: Normal completion
-    --- Job MESSAGE_run.gms Stop 07/11/26 18:17:44 elapsed 0:00:00.113
+    --- Job MESSAGE_run.gms Stop 10/04/26 13:21:56 elapsed 0:00:01.514
     --- Warning: The GAMS version [51.3.0] differs from the API version [24.8.3].
     --- Warning: The GAMS version [51.3.0] differs from the API version [24.8.3].
 
 
-    2026-07-11 18:17:44,461 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'I' not found in gdx!
-    2026-07-11 18:17:44,463 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'C' not found in gdx!
+    2026-10-04 13:21:56,292 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'I' not found in gdx!
+    2026-10-04 13:21:56,295 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'C' not found in gdx!
 
 
 
@@ -733,6 +799,15 @@ scen_rep = Reporter.from_scenario(scenario, **config)
 prepare_plots(scen_rep)
 ```
 
+    /tmp/ipykernel_4199/1802225191.py:1: DeprecationWarning: Importing from 'message_ix.reporting' is deprecated and will fail in a future version. Use 'message_ix.report'.
+      from message_ix.reporting import Reporter
+    Cannot redefine 'y' (<class 'pint.delegates.txt_defparser.plain.UnitDefinition'>)
+
+
+
+    <IPython.core.display.Javascript object>
+
+
 
 ```python
 base_rep.get("plot new capacity")
@@ -748,13 +823,13 @@ scen_rep.get("plot new capacity")
 
 
     
-![png](turkey_single_policy_revA_files/turkey_single_policy_revA_20_1.png)
+![svg](turkey_single_policy_revA_files/turkey_single_policy_revA_20_1.svg)
     
 
 
 
     
-![png](turkey_single_policy_revA_files/turkey_single_policy_revA_20_2.png)
+![svg](turkey_single_policy_revA_files/turkey_single_policy_revA_20_2.svg)
     
 
 
@@ -773,13 +848,13 @@ scen_rep.get("plot capacity")
 
 
     
-![png](turkey_single_policy_revA_files/turkey_single_policy_revA_21_1.png)
+![svg](turkey_single_policy_revA_files/turkey_single_policy_revA_21_1.svg)
     
 
 
 
     
-![png](turkey_single_policy_revA_files/turkey_single_policy_revA_21_2.png)
+![svg](turkey_single_policy_revA_files/turkey_single_policy_revA_21_2.svg)
     
 
 
@@ -798,13 +873,13 @@ scen_rep.get("plot activity")
 
 
     
-![png](turkey_single_policy_revA_files/turkey_single_policy_revA_22_1.png)
+![svg](turkey_single_policy_revA_files/turkey_single_policy_revA_22_1.svg)
     
 
 
 
     
-![png](turkey_single_policy_revA_files/turkey_single_policy_revA_22_2.png)
+![svg](turkey_single_policy_revA_files/turkey_single_policy_revA_22_2.svg)
     
 
 
